@@ -16,7 +16,6 @@ protocol TestExpectable {
     mutating func incrementCallCount()
     func validate() -> Bool
     var expectedResult:Any? {get}
-    
 }
 
 extension TestExpectable {
