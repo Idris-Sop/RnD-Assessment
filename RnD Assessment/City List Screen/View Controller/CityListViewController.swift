@@ -9,6 +9,8 @@ import UIKit
 
 class CityListViewController: BaseViewController {
 
+    // MARK: IBOutlet(s)
+    
     @IBOutlet private var citySearchBar: UISearchBar! {
         didSet {
             citySearchBar.delegate = self
@@ -24,19 +26,30 @@ class CityListViewController: BaseViewController {
     }
     
     @IBOutlet private var noRecordFoundLabel: UILabel!
-    
-    @IBOutlet private var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet private var loadingView: UIView!
-    
+
+    // MARK: Dependencies
+    private var selectedCity: City?
     private lazy var viewModel =  CityListViewModel(delegate: self)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.noRecordFoundLabel.isHidden = true
         viewModel.fetchCities()
         hideKeyboardWhenTappedAround()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "cityMapViewSegueIdentifier" {
+            let cityMapViewController = segue.destination as? CityMapViewController
+            guard let city = selectedCity else {
+                return
+            }
+            cityMapViewController?.setupPointAnnotationWith(city: city)
+        }
+    }
 }
+
+// MARK: UITableViewDelegate, UITableViewDataSource
 
 extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -55,11 +68,12 @@ extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
         return 60.0
     }
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        selectedReceipt = viewModel.receiptList?[indexPath.row]
-//        self.performSegue(withIdentifier: "EditReceiptSegueIdentifier", sender: self)
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.didSelectedCityAtIndex(index: indexPath.row)
+    }
 }
+
+// MARK: UISearchBarDelegate
 
 extension CityListViewController: UISearchBarDelegate {
     
@@ -76,6 +90,8 @@ extension CityListViewController: UISearchBarDelegate {
     }
 }
 
+// MARK: CityListViewModelDelegate
+
 extension CityListViewController: CityListViewModelDelegate {
     
     func refreshContentView() {
@@ -83,13 +99,11 @@ extension CityListViewController: CityListViewModelDelegate {
     }
     
     func showLoadingIndicator() {
-        self.loadingView.isHidden = false
-        self.activityIndicator.startAnimating()
+        self.showLoadingActivityIndicator()
     }
     
     func hideLoadingIndicator() {
-        self.loadingView.isHidden = true
-        self.activityIndicator.stopAnimating()
+        self.hideLoadingActivityIndicator()
     }
     
     func showError(with message: String) {
@@ -104,5 +118,10 @@ extension CityListViewController: CityListViewModelDelegate {
     func hideNoRecordsFoundText() {
         self.noRecordFoundLabel.isHidden = true
         self.cityTableView.isHidden = false
+    }
+    
+    func navigateToMapViewWith(city: City) {
+        self.selectedCity = city
+        self.performSegue(withIdentifier: "cityMapViewSegueIdentifier", sender: self)
     }
 }

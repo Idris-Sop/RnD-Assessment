@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CityListViewModel: NSObject {
+class CityListViewModel {
 
     private weak var delegate: CityListViewModelDelegate?
     private var repository: CityRepository?
@@ -16,26 +16,37 @@ class CityListViewModel: NSObject {
     private var showFilteredCities: Bool = false
     
     init(delegate: CityListViewModelDelegate) {
-        super.init()
         self.delegate = delegate
         self.repository = CityRepositoryImplementation()
     }
     
     func fetchCities() {
         self.delegate?.showLoadingIndicator()
+        
         let cachedCities = ManagedCityCache.sharedInstance.citiesList
         if cachedCities?.count ?? 0 > 0 {
             self.citiesList = cachedCities ?? [City]()
+            self.delegate?.hideLoadingIndicator()
+            self.delegate?.refreshContentView()
         } else {
-            self.repository?.fetchCities(with: { [weak self](citiesArray) in
-                self?.citiesList = citiesArray
-                ManagedCityCache.sharedInstance.citiesList = self?.citiesList
-            }, failure: { [weak self](error) in
-                self?.delegate?.showError(with: error.localizedDescription)
-            })
+            AsynchronousProvider.runOnConcurrent({
+                self.repository?.fetchCities(with: { [weak self](citiesArray) in
+                    AsynchronousProvider.runOnMain {
+                        self?.citiesList = citiesArray
+                        self?.delegate?.hideLoadingIndicator()
+                        ManagedCityCache.sharedInstance.citiesList = self?.citiesList
+                        self?.delegate?.refreshContentView()
+                    }
+                    
+                }, failure: { [weak self](error) in
+                    AsynchronousProvider.runOnMain {
+                        self?.delegate?.hideLoadingIndicator()
+                        self?.delegate?.showError(with: error.localizedDescription)
+                    }
+                    
+                })
+            }, .userInitiated)
         }
-        self.delegate?.refreshContentView()
-        self.delegate?.hideLoadingIndicator()
     }
     
     func numberOfCitiesInList() -> Int {
@@ -51,21 +62,25 @@ class CityListViewModel: NSObject {
         self.filteredCitiesList = [City]()
         let cities = self.citiesList
         
-        if searchString.isEmpty {
-            self.filteredCitiesList = cities
-        } else {
-            self.filteredCitiesList = cities.filter {(
-                $0.cityName?.lowercased().contains(searchString.lowercased())
-            ) ?? false}
-            
-            if self.filteredCitiesList.count == 0 {
+        AsynchronousProvider.runOnConcurrent ({
+            if searchString.isEmpty {
+                self.filteredCitiesList = cities
+            } else {
                 self.filteredCitiesList = cities.filter {(
-                    $0.countryCode?.lowercased().contains(searchString.lowercased())
+                    $0.cityName?.lowercased().contains(searchString.lowercased())
                 ) ?? false}
+                
+                if self.filteredCitiesList.count == 0 {
+                    self.filteredCitiesList = cities.filter {(
+                        $0.countryCode?.lowercased().contains(searchString.lowercased())
+                    ) ?? false}
+                }
             }
-        }
-        handleDisplayOfNoRecordsFoundText()
-        self.delegate?.refreshContentView()
+            AsynchronousProvider.runOnMain {
+                self.handleDisplayOfNoRecordsFoundText()
+                self.delegate?.refreshContentView()
+            }
+        }, .userInteractive)
     }
     
     private func handleDisplayOfNoRecordsFoundText() {
@@ -75,5 +90,10 @@ class CityListViewModel: NSObject {
         } else {
             self.delegate?.showNoRecordsFoundText()
         }
+    }
+    
+    func didSelectedCityAtIndex(index: Int) {
+        let selectedCity = (self.showFilteredCities) ? self.filteredCitiesList[index] : self.citiesList[index]
+        self.delegate?.navigateToMapViewWith(city: selectedCity)
     }
 }

@@ -62,5 +62,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>This allow us to locate a city on the Map</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>This allow us to locate a city on the Map</string>
 </dict>
 </plist>

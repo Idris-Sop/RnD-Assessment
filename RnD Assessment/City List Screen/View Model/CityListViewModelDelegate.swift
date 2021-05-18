@@ -14,4 +14,5 @@ protocol CityListViewModelDelegate: class {
     func showError(with message: String)
     func showNoRecordsFoundText()
     func hideNoRecordsFoundText()
+    func navigateToMapViewWith(city: City)
 }

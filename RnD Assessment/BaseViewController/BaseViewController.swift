@@ -9,7 +9,9 @@ import UIKit
 
 class BaseViewController: UIViewController {
 
-    @IBOutlet var scrollView: UIScrollView?
+    @IBOutlet private var scrollView: UIScrollView?
+    
+    private let loadingIndicatorView = LoadingIndicator()
 
     @IBInspectable var screenTitle: String {
         get {
@@ -43,6 +45,29 @@ class BaseViewController: UIViewController {
         didSet {
             self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: self.navigationBarLeftButtonImage, style: .plain, target: self, action: #selector(leftNavigationBarButtonImageTapped))
         }
+    }
+    
+    private func addSubViewAndBringToFront(view: UIView) {
+        if let navigationController = self.navigationController,
+           let frame = self.navigationController?.view.frame {
+            navigationController.view.addSubview(view)
+            view.frame = frame
+            navigationController.view.bringSubviewToFront(view)
+        } else {
+            self.view.addSubview(view)
+            view.frame = self.view.frame
+            self.view.bringSubviewToFront(view)
+        }
+    }
+    
+    func showLoadingActivityIndicator() {
+        self.addSubViewAndBringToFront(view: loadingIndicatorView)
+        self.loadingIndicatorView.startLoadingIndicator()
+    }
+    
+    func hideLoadingActivityIndicator() {
+        self.loadingIndicatorView.removeFromSuperview()
+        self.loadingIndicatorView.stopLoadingIndicator()
     }
     
     override func viewDidLoad() {

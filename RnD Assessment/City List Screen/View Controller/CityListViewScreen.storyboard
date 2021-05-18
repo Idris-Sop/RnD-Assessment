@@ -43,7 +43,7 @@
                                 <rect key="frame" x="0.0" y="148" width="414" height="714"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cityCell" id="pB8-5N-jtU" customClass="CityTableViewCell" customModule="RnD_Assignment" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cityCell" id="pB8-5N-jtU" customClass="CityTableViewCell" customModule="RnD_Assessment" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pB8-5N-jtU" id="00t-Tb-XCg">
@@ -105,34 +105,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Coy-yi-LlB">
-                                <rect key="frame" x="182" y="450" width="50" height="50"/>
-                                <subviews>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="rqb-98-Xnk">
-                                        <rect key="frame" x="15" y="15" width="20" height="20"/>
-                                        <color key="color" systemColor="systemBlueColor"/>
-                                    </activityIndicatorView>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="Uc5-B7-uct"/>
-                                    <constraint firstItem="rqb-98-Xnk" firstAttribute="centerX" secondItem="Coy-yi-LlB" secondAttribute="centerX" id="aVa-Qm-Flk"/>
-                                    <constraint firstItem="rqb-98-Xnk" firstAttribute="centerY" secondItem="Coy-yi-LlB" secondAttribute="centerY" id="l6f-ST-Fmv"/>
-                                    <constraint firstAttribute="height" constant="50" id="lPe-gA-4vt"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Coy-yi-LlB" firstAttribute="centerY" secondItem="vDu-zF-Fre" secondAttribute="centerY" id="KUc-pT-nkC"/>
                             <constraint firstItem="jsI-Q1-b2H" firstAttribute="top" secondItem="NxV-R7-c3d" secondAttribute="bottom" id="LPY-e5-8VJ"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="jsI-Q1-b2H" secondAttribute="bottom" id="Y2a-HY-gZa"/>
                             <constraint firstItem="jsI-Q1-b2H" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="Zgi-Eq-SDe"/>
                             <constraint firstItem="Liq-hl-lxW" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="eFz-0u-ffE"/>
                             <constraint firstItem="NxV-R7-c3d" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="fLG-vf-rrx"/>
                             <constraint firstItem="Liq-hl-lxW" firstAttribute="centerY" secondItem="vDu-zF-Fre" secondAttribute="centerY" id="nYa-Ye-g0t"/>
-                            <constraint firstItem="Coy-yi-LlB" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="r07-2h-MZ0"/>
                             <constraint firstAttribute="trailing" secondItem="jsI-Q1-b2H" secondAttribute="trailing" id="rqZ-2e-y1C"/>
                             <constraint firstItem="NxV-R7-c3d" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="uZy-Z7-6QQ"/>
                             <constraint firstAttribute="trailing" secondItem="NxV-R7-c3d" secondAttribute="trailing" id="xH3-s6-1yA"/>
@@ -143,24 +125,30 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="screenTitle" value="Cities"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <outlet property="activityIndicator" destination="rqb-98-Xnk" id="seC-XP-K5h"/>
                         <outlet property="citySearchBar" destination="NxV-R7-c3d" id="WDV-Wj-dwF"/>
                         <outlet property="cityTableView" destination="jsI-Q1-b2H" id="ghp-rr-ay4"/>
-                        <outlet property="loadingView" destination="Coy-yi-LlB" id="qtp-l7-hR8"/>
                         <outlet property="noRecordFoundLabel" destination="Liq-hl-lxW" id="EPJ-em-jPR"/>
+                        <segue destination="RvW-to-yFs" kind="show" identifier="cityMapViewSegueIdentifier" id="fi1-oD-kRh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="139" y="124"/>
         </scene>
+        <!--CityMapScreen-->
+        <scene sceneID="VVa-j2-jTi">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CityMapScreen" id="RvW-to-yFs" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="KWI-mm-fFe"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hCr-wc-yBB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="800" y="168"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
