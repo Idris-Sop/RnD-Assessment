@@ -61,6 +61,7 @@ extension CityListViewController: UITableViewDelegate, UITableViewDataSource {
         let currentCity = viewModel.cityAtIndex(index: indexPath.row)
 
         customCell?.populateCellWith(cityName: currentCity.cityName ?? "", countryCode: currentCity.countryCode ?? "", latitude: currentCity.cityCoordinate?.latitude ?? 0.00, longitude: currentCity.cityCoordinate?.longitude ?? 0.00)
+        customCell?.accessoryType = .disclosureIndicator
         return customCell ?? CityTableViewCell()
     }
     

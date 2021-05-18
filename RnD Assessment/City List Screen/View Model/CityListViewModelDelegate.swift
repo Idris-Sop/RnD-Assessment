@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol CityListViewModelDelegate: class {
+protocol CityListViewModelDelegate: AnyObject {
     func refreshContentView()
     func showLoadingIndicator()
     func hideLoadingIndicator()

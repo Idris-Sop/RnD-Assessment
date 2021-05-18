@@ -10,12 +10,14 @@ import MapKit
 
 class CityMapViewController: BaseViewController {
 
+    // MARK: IBOutlet(s)
+    
     @IBOutlet private var mapView: MKMapView!
     private var selectedCity: City?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.screenTitle = selectedCity?.cityName ?? "Map"
         mapView.centerToLocation(CLLocation(latitude: selectedCity?.cityCoordinate?.latitude ?? 0, longitude:  selectedCity?.cityCoordinate?.longitude ?? 0.0))
         let annotations = MKPointAnnotation()
         annotations.title = selectedCity?.cityName
@@ -29,7 +31,7 @@ class CityMapViewController: BaseViewController {
 }
 
 private extension MKMapView {
-    func centerToLocation( _ location: CLLocation, regionRadius: CLLocationDistance = 100000) {
+    func centerToLocation( _ location: CLLocation, regionRadius: CLLocationDistance = 1000000) {
         let coordinateRegion = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
         setRegion(coordinateRegion, animated: true)
     }

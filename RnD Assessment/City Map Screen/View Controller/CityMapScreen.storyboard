@@ -29,9 +29,6 @@
                             <constraint firstItem="Aon-a5-Zcf" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="S4w-7G-oH3"/>
                         </constraints>
                     </view>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="screenTitle" value="Map"/>
-                    </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="mapView" destination="Aon-a5-Zcf" id="xnJ-3m-nqj"/>
                     </connections>

@@ -13,52 +13,41 @@ class CityListViewModel {
     private var repository: CityRepository?
     private var citiesList = [City]()
     private var filteredCitiesList = [City]()
-    private var showFilteredCities: Bool = false
     
-    init(delegate: CityListViewModelDelegate) {
+    init(repository: CityRepository = CityRepositoryImplementation(), delegate: CityListViewModelDelegate) {
         self.delegate = delegate
-        self.repository = CityRepositoryImplementation()
+        self.repository = repository
     }
     
     func fetchCities() {
         self.delegate?.showLoadingIndicator()
-        
-        let cachedCities = ManagedCityCache.sharedInstance.citiesList
-        if cachedCities?.count ?? 0 > 0 {
-            self.citiesList = cachedCities ?? [City]()
-            self.delegate?.hideLoadingIndicator()
-            self.delegate?.refreshContentView()
-        } else {
-            AsynchronousProvider.runOnConcurrent({
-                self.repository?.fetchCities(with: { [weak self](citiesArray) in
-                    AsynchronousProvider.runOnMain {
-                        self?.citiesList = citiesArray
-                        self?.delegate?.hideLoadingIndicator()
-                        ManagedCityCache.sharedInstance.citiesList = self?.citiesList
-                        self?.delegate?.refreshContentView()
-                    }
-                    
-                }, failure: { [weak self](error) in
-                    AsynchronousProvider.runOnMain {
-                        self?.delegate?.hideLoadingIndicator()
-                        self?.delegate?.showError(with: error.localizedDescription)
-                    }
-                    
-                })
-            }, .userInitiated)
-        }
+        AsynchronousProvider.runOnConcurrent({
+            self.repository?.fetchCities(with: { [weak self](citiesArray) in
+                AsynchronousProvider.runOnMain {
+                    self?.filteredCitiesList = citiesArray
+                    self?.citiesList = citiesArray
+                    self?.delegate?.hideLoadingIndicator()
+                    self?.delegate?.refreshContentView()
+                }
+                
+            }, failure: { [weak self](error) in
+                AsynchronousProvider.runOnMain {
+                    self?.delegate?.hideLoadingIndicator()
+                    self?.delegate?.showError(with: error.localizedDescription)
+                }
+            })
+        }, .userInitiated)
     }
     
     func numberOfCitiesInList() -> Int {
-        return (self.showFilteredCities) ? (self.filteredCitiesList.count) : (self.citiesList.count)
+        return self.filteredCitiesList.count
     }
     
     func cityAtIndex(index: Int) -> City {
-        return (self.showFilteredCities) ? self.filteredCitiesList[index] : self.citiesList[index]
+        return self.filteredCitiesList[index]
     }
     
     func searchCityWithKeyword(searchString: String) {
-        self.showFilteredCities = true
         self.filteredCitiesList = [City]()
         let cities = self.citiesList
         
@@ -66,21 +55,17 @@ class CityListViewModel {
             if searchString.isEmpty {
                 self.filteredCitiesList = cities
             } else {
-                self.filteredCitiesList = cities.filter {(
-                    $0.cityName?.lowercased().contains(searchString.lowercased())
-                ) ?? false}
-                
-                if self.filteredCitiesList.count == 0 {
-                    self.filteredCitiesList = cities.filter {(
-                        $0.countryCode?.lowercased().contains(searchString.lowercased())
-                    ) ?? false}
-                }
+                self.filteredCitiesList = cities.filter {return self.doesCityContainSearchData(city: $0, search: searchString)}
             }
             AsynchronousProvider.runOnMain {
                 self.handleDisplayOfNoRecordsFoundText()
                 self.delegate?.refreshContentView()
             }
         }, .userInteractive)
+    }
+    
+    private func doesCityContainSearchData(city: City, search: String) -> Bool {
+        return city.cityName?.ingoreCaseContains(search) ?? false || city.countryCode?.ingoreCaseContains(search) ?? false
     }
     
     private func handleDisplayOfNoRecordsFoundText() {
@@ -93,7 +78,12 @@ class CityListViewModel {
     }
     
     func didSelectedCityAtIndex(index: Int) {
-        let selectedCity = (self.showFilteredCities) ? self.filteredCitiesList[index] : self.citiesList[index]
-        self.delegate?.navigateToMapViewWith(city: selectedCity)
+        self.delegate?.navigateToMapViewWith(city: self.filteredCitiesList[index])
+    }
+}
+
+extension String {
+    func ingoreCaseContains(_ searchable: String) -> Bool {
+        return self.lowercased().contains(searchable.lowercased())
     }
 }

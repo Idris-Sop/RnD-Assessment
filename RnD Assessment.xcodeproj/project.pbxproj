@@ -11,7 +11,7 @@
 		D69C3C27265281EA0090C503 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69C3C26265281EA0090C503 /* SceneDelegate.swift */; };
 		D69C3C2E265281EC0090C503 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D69C3C2D265281EC0090C503 /* Assets.xcassets */; };
 		D69C3C31265281EC0090C503 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D69C3C2F265281EC0090C503 /* LaunchScreen.storyboard */; };
-		D69C3C3C265281ED0090C503 /* RnD_AssessmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69C3C3B265281ED0090C503 /* RnD_AssessmentTests.swift */; };
+		D69C3C3C265281ED0090C503 /* CityListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69C3C3B265281ED0090C503 /* CityListViewModelTests.swift */; };
 		D69C3C47265281ED0090C503 /* RnD_AssessmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69C3C46265281ED0090C503 /* RnD_AssessmentUITests.swift */; };
 		D69C3C562652822A0090C503 /* CityRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69C3C552652822A0090C503 /* CityRepository.swift */; };
 		D69C3C582652823B0090C503 /* CityRepositoryImplementation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69C3C572652823B0090C503 /* CityRepositoryImplementation.swift */; };
@@ -31,6 +31,10 @@
 		D69C3FAC2653F0250090C503 /* LoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69C3FAB2653F0250090C503 /* LoadingIndicator.swift */; };
 		D69C3FAE2653F05E0090C503 /* LoadingIndicator.xib in Resources */ = {isa = PBXBuildFile; fileRef = D69C3FAD2653F05E0090C503 /* LoadingIndicator.xib */; };
 		D69C3FB12653F2060090C503 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69C3FB02653F2060090C503 /* City.swift */; };
+		D69C3FB52653FE2E0090C503 /* TestExpectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69C3FB42653FE2E0090C503 /* TestExpectable.swift */; };
+		D69C3FB72653FE6F0090C503 /* MockCityRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69C3FB62653FE6F0090C503 /* MockCityRepository.swift */; };
+		D69C3FB9265401120090C503 /* MockCityViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69C3FB8265401120090C503 /* MockCityViewModelDelegate.swift */; };
+		D69C3FC1265413050090C503 /* DummyAsynchronousRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69C3FC0265413050090C503 /* DummyAsynchronousRunner.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,7 +62,7 @@
 		D69C3C30265281EC0090C503 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D69C3C32265281EC0090C503 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D69C3C37265281ED0090C503 /* RnD AssessmentTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RnD AssessmentTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		D69C3C3B265281ED0090C503 /* RnD_AssessmentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RnD_AssessmentTests.swift; sourceTree = "<group>"; };
+		D69C3C3B265281ED0090C503 /* CityListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityListViewModelTests.swift; sourceTree = "<group>"; };
 		D69C3C3D265281ED0090C503 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D69C3C42265281ED0090C503 /* RnD AssessmentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RnD AssessmentUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D69C3C46265281ED0090C503 /* RnD_AssessmentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RnD_AssessmentUITests.swift; sourceTree = "<group>"; };
@@ -81,6 +85,10 @@
 		D69C3FAB2653F0250090C503 /* LoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicator.swift; sourceTree = "<group>"; };
 		D69C3FAD2653F05E0090C503 /* LoadingIndicator.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingIndicator.xib; sourceTree = "<group>"; };
 		D69C3FB02653F2060090C503 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
+		D69C3FB42653FE2E0090C503 /* TestExpectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestExpectable.swift; sourceTree = "<group>"; };
+		D69C3FB62653FE6F0090C503 /* MockCityRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCityRepository.swift; sourceTree = "<group>"; };
+		D69C3FB8265401120090C503 /* MockCityViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCityViewModelDelegate.swift; sourceTree = "<group>"; };
+		D69C3FC0265413050090C503 /* DummyAsynchronousRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyAsynchronousRunner.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,7 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				D69C3FA22653EE830090C503 /* Reusable */,
-				D69C3E042652D9ED0090C503 /* Map Screen */,
+				D69C3E042652D9ED0090C503 /* City Map Screen */,
 				D69C3C5E265282880090C503 /* City List Screen */,
 				D69C3C5B2652825A0090C503 /* BaseViewController */,
 				D69C3C59265282520090C503 /* cities.json */,
@@ -150,7 +158,8 @@
 		D69C3C3A265281ED0090C503 /* RnD AssessmentTests */ = {
 			isa = PBXGroup;
 			children = (
-				D69C3C3B265281ED0090C503 /* RnD_AssessmentTests.swift */,
+				D69C3FB22653FDB60090C503 /* Mocks */,
+				D69C3C3B265281ED0090C503 /* CityListViewModelTests.swift */,
 				D69C3C3D265281ED0090C503 /* Info.plist */,
 			);
 			path = "RnD AssessmentTests";
@@ -220,13 +229,12 @@
 			path = "Custom Cell";
 			sourceTree = "<group>";
 		};
-		D69C3E042652D9ED0090C503 /* Map Screen */ = {
+		D69C3E042652D9ED0090C503 /* City Map Screen */ = {
 			isa = PBXGroup;
 			children = (
-				D69C3E062652DA030090C503 /* View Model */,
 				D69C3E052652D9F90090C503 /* View Controller */,
 			);
-			path = "Map Screen";
+			path = "City Map Screen";
 			sourceTree = "<group>";
 		};
 		D69C3E052652D9F90090C503 /* View Controller */ = {
@@ -238,19 +246,13 @@
 			path = "View Controller";
 			sourceTree = "<group>";
 		};
-		D69C3E062652DA030090C503 /* View Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "View Model";
-			sourceTree = "<group>";
-		};
 		D69C3FA22653EE830090C503 /* Reusable */ = {
 			isa = PBXGroup;
 			children = (
 				D69C3FA62653EF600090C503 /* AsynchronousProvider.swift */,
 				D69C3FA32653EF160090C503 /* AsynchronousRunner.swift */,
 				D69C3FA82653EF8C0090C503 /* AsynchronousRunnerImplementation.swift */,
+				D69C3FC0265413050090C503 /* DummyAsynchronousRunner.swift */,
 			);
 			path = Reusable;
 			sourceTree = "<group>";
@@ -270,6 +272,16 @@
 				D69C3FB02653F2060090C503 /* City.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		D69C3FB22653FDB60090C503 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				D69C3FB42653FE2E0090C503 /* TestExpectable.swift */,
+				D69C3FB62653FE6F0090C503 /* MockCityRepository.swift */,
+				D69C3FB8265401120090C503 /* MockCityViewModelDelegate.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,11 +308,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D69C3C4E265281ED0090C503 /* Build configuration list for PBXNativeTarget "RnD AssessmentTests" */;
 			buildPhases = (
-				AF7EA71998EB6FF7A87B7C5A /* [CP] Check Pods Manifest.lock */,
 				D69C3C33265281ED0090C503 /* Sources */,
 				D69C3C34265281ED0090C503 /* Frameworks */,
 				D69C3C35265281ED0090C503 /* Resources */,
-				D69C3E0B2652E0F50090C503 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -316,7 +326,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D69C3C51265281ED0090C503 /* Build configuration list for PBXNativeTarget "RnD AssessmentUITests" */;
 			buildPhases = (
-				ABEC839776ABF1D0EAACCBF8 /* [CP] Check Pods Manifest.lock */,
 				D69C3C3E265281ED0090C503 /* Sources */,
 				D69C3C3F265281ED0090C503 /* Frameworks */,
 				D69C3C40265281ED0090C503 /* Resources */,
@@ -403,70 +412,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		ABEC839776ABF1D0EAACCBF8 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-RnD Assessment-RnD AssessmentUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		AF7EA71998EB6FF7A87B7C5A /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-RnD AssessmentTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D69C3E0B2652E0F50090C503 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "./cuckoo.sh\n\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		D69C3C1D265281EA0090C503 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -481,6 +426,7 @@
 				D69C3C64265282CB0090C503 /* CityListViewModel.swift in Sources */,
 				D69C3C62265282BA0090C503 /* CityListViewModelDelegate.swift in Sources */,
 				D69C3C582652823B0090C503 /* CityRepositoryImplementation.swift in Sources */,
+				D69C3FC1265413050090C503 /* DummyAsynchronousRunner.swift in Sources */,
 				D69C3C27265281EA0090C503 /* SceneDelegate.swift in Sources */,
 				D69C3C6D2652927D0090C503 /* ManagedCityCache.swift in Sources */,
 				D69C3FA42653EF170090C503 /* AsynchronousRunner.swift in Sources */,
@@ -495,7 +441,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D69C3C3C265281ED0090C503 /* RnD_AssessmentTests.swift in Sources */,
+				D69C3FB9265401120090C503 /* MockCityViewModelDelegate.swift in Sources */,
+				D69C3FB52653FE2E0090C503 /* TestExpectable.swift in Sources */,
+				D69C3C3C265281ED0090C503 /* CityListViewModelTests.swift in Sources */,
+				D69C3FB72653FE6F0090C503 /* MockCityRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

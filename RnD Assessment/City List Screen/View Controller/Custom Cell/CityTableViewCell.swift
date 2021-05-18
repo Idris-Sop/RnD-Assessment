@@ -19,7 +19,7 @@ class CityTableViewCell: UITableViewCell {
     }
 
     func populateCellWith(cityName: String, countryCode: String, latitude: Double, longitude: Double) {
-        cityNameLabel?.text = String(format: "City: %@", cityName)
+        cityNameLabel?.text = String(format: "City: %@,", cityName)
         countryCodeLabel?.text = String(format: "Country: %@", countryCode)
         cityLatitudeLabel?.text = String(format: "Latitude: %.6f", latitude)
         cityLongitudeLabel?.text = String(format: "Longitude: %.6f", longitude)

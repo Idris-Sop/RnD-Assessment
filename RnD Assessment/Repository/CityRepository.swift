@@ -10,7 +10,7 @@ import UIKit
 typealias FetchCitiesCompletionBlock = (_ success: [City]) -> Void
 typealias CompletionFailureBlock = (_ error: NSError) -> Void
 
-protocol CityRepository: class {
+protocol CityRepository: AnyObject {
 
     func fetchCities(with success: @escaping FetchCitiesCompletionBlock,
                      failure: @escaping CompletionFailureBlock)
