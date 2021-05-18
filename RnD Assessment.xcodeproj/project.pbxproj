@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		821B1A9A6E9D537B097C6E50 /* Pods_RnD_AssessmentTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC9B4693C42FAA5EC2092960 /* Pods_RnD_AssessmentTests.framework */; };
-		A2F4E5C6277E00CD864224F3 /* Pods_RnD_Assessment_RnD_AssessmentUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65EADF938E09865993051A78 /* Pods_RnD_Assessment_RnD_AssessmentUITests.framework */; };
-		C1FAD7E22AA838F4C80AE0AE /* Pods_RnD_Assessment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0E3321CB88DA8900D74040B /* Pods_RnD_Assessment.framework */; };
 		D69C3C25265281EA0090C503 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69C3C24265281EA0090C503 /* AppDelegate.swift */; };
 		D69C3C27265281EA0090C503 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D69C3C26265281EA0090C503 /* SceneDelegate.swift */; };
 		D69C3C2E265281EC0090C503 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D69C3C2D265281EC0090C503 /* Assets.xcassets */; };
@@ -54,15 +51,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		032EF57610FFB845A856C4F8 /* Pods-RnD Assessment.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RnD Assessment.release.xcconfig"; path = "Target Support Files/Pods-RnD Assessment/Pods-RnD Assessment.release.xcconfig"; sourceTree = "<group>"; };
-		17A03DAB70684ECE964F7494 /* Pods-RnD Assessment-RnD AssessmentUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RnD Assessment-RnD AssessmentUITests.release.xcconfig"; path = "Target Support Files/Pods-RnD Assessment-RnD AssessmentUITests/Pods-RnD Assessment-RnD AssessmentUITests.release.xcconfig"; sourceTree = "<group>"; };
-		555237FF5B638EEA699A1351 /* Pods-RnD Assessment-RnD AssessmentUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RnD Assessment-RnD AssessmentUITests.debug.xcconfig"; path = "Target Support Files/Pods-RnD Assessment-RnD AssessmentUITests/Pods-RnD Assessment-RnD AssessmentUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		65EADF938E09865993051A78 /* Pods_RnD_Assessment_RnD_AssessmentUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RnD_Assessment_RnD_AssessmentUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8A5F77432C8039197630993A /* Pods-RnD AssessmentTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RnD AssessmentTests.debug.xcconfig"; path = "Target Support Files/Pods-RnD AssessmentTests/Pods-RnD AssessmentTests.debug.xcconfig"; sourceTree = "<group>"; };
-		8B7068E6C9CF02E4747430B5 /* Pods-RnD Assessment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RnD Assessment.debug.xcconfig"; path = "Target Support Files/Pods-RnD Assessment/Pods-RnD Assessment.debug.xcconfig"; sourceTree = "<group>"; };
-		96AEE550ACADD92FB6E8C9E1 /* Pods-RnD AssessmentTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RnD AssessmentTests.release.xcconfig"; path = "Target Support Files/Pods-RnD AssessmentTests/Pods-RnD AssessmentTests.release.xcconfig"; sourceTree = "<group>"; };
-		B0E3321CB88DA8900D74040B /* Pods_RnD_Assessment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RnD_Assessment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BC9B4693C42FAA5EC2092960 /* Pods_RnD_AssessmentTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RnD_AssessmentTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D69C3C21265281EA0090C503 /* RnD Assessment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RnD Assessment.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D69C3C24265281EA0090C503 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D69C3C26265281EA0090C503 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -100,7 +88,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C1FAD7E22AA838F4C80AE0AE /* Pods_RnD_Assessment.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,7 +95,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				821B1A9A6E9D537B097C6E50 /* Pods_RnD_AssessmentTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,36 +102,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A2F4E5C6277E00CD864224F3 /* Pods_RnD_Assessment_RnD_AssessmentUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2FB2A0FFC009F00B71F1B9D4 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				B0E3321CB88DA8900D74040B /* Pods_RnD_Assessment.framework */,
-				65EADF938E09865993051A78 /* Pods_RnD_Assessment_RnD_AssessmentUITests.framework */,
-				BC9B4693C42FAA5EC2092960 /* Pods_RnD_AssessmentTests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		782B127D99C8A6E8ED6AB685 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				8B7068E6C9CF02E4747430B5 /* Pods-RnD Assessment.debug.xcconfig */,
-				032EF57610FFB845A856C4F8 /* Pods-RnD Assessment.release.xcconfig */,
-				555237FF5B638EEA699A1351 /* Pods-RnD Assessment-RnD AssessmentUITests.debug.xcconfig */,
-				17A03DAB70684ECE964F7494 /* Pods-RnD Assessment-RnD AssessmentUITests.release.xcconfig */,
-				8A5F77432C8039197630993A /* Pods-RnD AssessmentTests.debug.xcconfig */,
-				96AEE550ACADD92FB6E8C9E1 /* Pods-RnD AssessmentTests.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		D69C3C18265281EA0090C503 = {
 			isa = PBXGroup;
 			children = (
@@ -153,8 +115,6 @@
 				D69C3C3A265281ED0090C503 /* RnD AssessmentTests */,
 				D69C3C45265281ED0090C503 /* RnD AssessmentUITests */,
 				D69C3C22265281EA0090C503 /* Products */,
-				782B127D99C8A6E8ED6AB685 /* Pods */,
-				2FB2A0FFC009F00B71F1B9D4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -319,7 +279,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D69C3C4B265281ED0090C503 /* Build configuration list for PBXNativeTarget "RnD Assessment" */;
 			buildPhases = (
-				534E5ADC990876159B1244D9 /* [CP] Check Pods Manifest.lock */,
 				D69C3C1D265281EA0090C503 /* Sources */,
 				D69C3C1E265281EA0090C503 /* Frameworks */,
 				D69C3C1F265281EA0090C503 /* Resources */,
@@ -445,28 +404,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		534E5ADC990876159B1244D9 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-RnD Assessment-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		ABEC839776ABF1D0EAACCBF8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -715,7 +652,6 @@
 		};
 		D69C3C4C265281ED0090C503 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8B7068E6C9CF02E4747430B5 /* Pods-RnD Assessment.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -735,7 +671,6 @@
 		};
 		D69C3C4D265281ED0090C503 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 032EF57610FFB845A856C4F8 /* Pods-RnD Assessment.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -755,7 +690,6 @@
 		};
 		D69C3C4F265281ED0090C503 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8A5F77432C8039197630993A /* Pods-RnD AssessmentTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -778,7 +712,6 @@
 		};
 		D69C3C50265281ED0090C503 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 96AEE550ACADD92FB6E8C9E1 /* Pods-RnD AssessmentTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -801,7 +734,6 @@
 		};
 		D69C3C52265281ED0090C503 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 555237FF5B638EEA699A1351 /* Pods-RnD Assessment-RnD AssessmentUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -822,7 +754,6 @@
 		};
 		D69C3C53265281ED0090C503 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 17A03DAB70684ECE964F7494 /* Pods-RnD Assessment-RnD AssessmentUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
