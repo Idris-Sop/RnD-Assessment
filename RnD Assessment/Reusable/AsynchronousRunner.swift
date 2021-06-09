@@ -10,6 +10,5 @@ import UIKit
 protocol AsynchronousRunner {
     func runOnConcurrent(_ action: @escaping () -> Void, _ qos: DispatchQoS.QoSClass)
     func runOnMain(_ action: @escaping () -> Void)
-    
 }
 

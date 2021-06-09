@@ -12,7 +12,10 @@ import UIKit
     @objc public static let sharedInstance = ManagedCityCache()
     var citiesList: [City]?
     
+    var trieNodeCities =  Trie()
+    
     func invalidate() {
         citiesList = nil
+        trieNodeCities =  Trie()
     }
 }

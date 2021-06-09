@@ -12,9 +12,9 @@ class CityRepositoryImplementation: CityRepository {
     func fetchCities(with success: @escaping FetchCitiesCompletionBlock,
                      failure: @escaping CompletionFailureBlock) {
         
-        let cachedCities = ManagedCityCache.sharedInstance.citiesList
-        if let cities = cachedCities, cities.count > 0 {
-            success(cities)
+        let isCachedCitiesEmpty = ManagedCityCache.sharedInstance.trieNodeCities.isEmpty
+        if !isCachedCitiesEmpty{
+            success(ManagedCityCache.sharedInstance.trieNodeCities.getAllCities())
         } else {
             if let path = Bundle.main.path(forResource: "cities", ofType: "json") {
                 do {
@@ -23,6 +23,9 @@ class CityRepositoryImplementation: CityRepository {
                     var cityArray = try JSONDecoder().decode([City].self, from: data)
                     cityArray.sort(by: { $0.cityName?.compare($1.cityName ?? "") == .orderedAscending })
                     ManagedCityCache.sharedInstance.citiesList = cityArray
+                    cityArray.forEach { (city) in
+                        ManagedCityCache.sharedInstance.trieNodeCities.insert(city)
+                    }
                     success(cityArray)
                 } catch {
                     let dataError = NSError(domain: "The data couldn’t be read due to technical problem.", code: 0, userInfo: nil)
@@ -30,5 +33,12 @@ class CityRepositoryImplementation: CityRepository {
                 }
             }
         }
+    }
+    
+    func searchForCities(with searchString: String) -> [City] {
+        if searchString.isEmpty {
+            return ManagedCityCache.sharedInstance.citiesList ?? [City]()
+        }
+        return ManagedCityCache.sharedInstance.trieNodeCities.search(with: searchString)
     }
 }

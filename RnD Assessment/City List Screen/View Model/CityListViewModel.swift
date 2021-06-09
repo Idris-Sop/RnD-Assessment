@@ -10,9 +10,8 @@ import UIKit
 class CityListViewModel {
 
     private weak var delegate: CityListViewModelDelegate?
-    private var repository: CityRepository?
+    private let repository: CityRepository
     private var citiesList = [City]()
-    private var filteredCitiesList = [City]()
     
     init(repository: CityRepository = CityRepositoryImplementation(), delegate: CityListViewModelDelegate) {
         self.delegate = delegate
@@ -22,9 +21,8 @@ class CityListViewModel {
     func fetchCities() {
         self.delegate?.showLoadingIndicator()
         AsynchronousProvider.runOnConcurrent({
-            self.repository?.fetchCities(with: { [weak self](citiesArray) in
+            self.repository.fetchCities(with: { [weak self](citiesArray) in
                 AsynchronousProvider.runOnMain {
-                    self?.filteredCitiesList = citiesArray
                     self?.citiesList = citiesArray
                     self?.delegate?.hideLoadingIndicator()
                     self?.delegate?.refreshContentView()
@@ -40,32 +38,22 @@ class CityListViewModel {
     }
     
     func numberOfCitiesInList() -> Int {
-        return self.filteredCitiesList.count
+        return self.citiesList.count
     }
     
     func cityAtIndex(index: Int) -> City {
-        return self.filteredCitiesList[index]
+        return self.citiesList[index]
     }
     
     func searchCityWithKeyword(searchString: String) {
-        self.filteredCitiesList = [City]()
-        let cities = self.citiesList
-        
+        self.citiesList = [City]()
         AsynchronousProvider.runOnConcurrent ({
-            if searchString.isEmpty {
-                self.filteredCitiesList = cities
-            } else {
-                self.filteredCitiesList = cities.filter {return self.doesCityContainSearchData(city: $0, search: searchString)}
-            }
+            self.citiesList = self.repository.searchForCities(with: searchString)
             AsynchronousProvider.runOnMain {
                 self.handleDisplayOfNoRecordsFoundText()
                 self.delegate?.refreshContentView()
             }
         }, .userInteractive)
-    }
-    
-    private func doesCityContainSearchData(city: City, search: String) -> Bool {
-        return city.cityName?.ingoreCaseContains(search) ?? false || city.countryCode?.ingoreCaseContains(search) ?? false
     }
     
     private func handleDisplayOfNoRecordsFoundText() {
@@ -78,7 +66,7 @@ class CityListViewModel {
     }
     
     func didSelectedCityAtIndex(index: Int) {
-        self.delegate?.navigateToMapViewWith(city: self.filteredCitiesList[index])
+        self.delegate?.navigateToMapViewWith(city: self.citiesList[index])
     }
 }
 
@@ -87,3 +75,4 @@ extension String {
         return self.lowercased().contains(searchable.lowercased())
     }
 }
+
